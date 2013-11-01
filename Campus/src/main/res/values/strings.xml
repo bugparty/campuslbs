@@ -4,5 +4,16 @@
     <string name="app_name">Campus</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string-array name="navigation_list">
+        <item>title tab</item>
+        <item>title tab</item>
+        <item>title tab</item>
+        <item>title tab</item>
+        <item>title tab</item>
+        <item>title tab</item>
+        <item>title tab</item>
+
+    </string-array>
 
 </resources>
