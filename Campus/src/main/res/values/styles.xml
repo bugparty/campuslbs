@@ -2,9 +2,32 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="App.Base" parent="Theme.AppCompat.Light">
+
     <!-- Customize your theme here. -->
     </style>
+    <style name="AppTheme" parent="App.Base"></style>
+    <style name="StreamActivity">
+
+    </style>
+    <style name="StreamContainer">
+
+    </style>
+    <style name="StreamOriginalContainer"></style>
+    <style name="StreamUserName">
+
+    </style>
+    <style name="StreamTime"></style>
+    <style name="StreamOriginalAuthor"></style>
+    <style name="StreamMediaContainer"></style>
+    <style name="StreamMediaBackground"></style>
+    <style name="StreamMediaOverlay"></style>
+    <style name="StreamMediaTitle"></style>
+    <style name="StreamMediaSubtitle"></style>
+    <style name="StreamInteractionsContainer"></style>
+    <style name="StreamPlusOnes"></style>
+    <style name="StreamShares"></style>
+    <style name="StreamComments"></style>
 
     <style name="LoginFormContainer">
         <item name="android:layout_width">match_parent</item>

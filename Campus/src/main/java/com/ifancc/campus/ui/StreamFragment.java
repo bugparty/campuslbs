@@ -1,6 +1,8 @@
 package com.ifancc.campus.ui;
 
+import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.view.View;
 
 import com.ifancc.campus.util.LogUtils;
 
@@ -10,5 +12,7 @@ import com.ifancc.campus.util.LogUtils;
  */
 public class StreamFragment extends ListFragment {
     private static final String TAG = LogUtils.makeLogTag(StreamFragment.class);
+    public void onViewCreated(View view, Bundle savedInstanceStatus){
 
+    }
 }

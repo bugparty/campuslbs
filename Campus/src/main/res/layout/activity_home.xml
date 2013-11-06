@@ -1,6 +1,6 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/homeDrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
@@ -17,6 +17,7 @@
     </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/leftDrawer"
         android:orientation="vertical"
         android:layout_width="280dp"
         android:layout_height="match_parent"
@@ -41,7 +42,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bowman Hant"
+                android:text="Bowman Han"
                 android:textSize="20dp"
                 android:textColor="@color/profile_title_white"
                 android:id="@+id/textView"
