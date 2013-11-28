@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_gravity="start"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/galaxy_mini2">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/bomanhan"
+            android:layout_margin="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bowman Han"
+            android:textSize="20dp"
+            android:textColor="@color/profile_title_white"
+            android:id="@+id/textView"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fancycode@gmail.com"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/textView"
+            android:layout_toRightOf="@+id/imageView"
+            android:textColor="@color/profile_title_white" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="韩博文"/>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textSize="15sp"
+                android:text="毕业学校："/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:textSize="15sp"
+                android:text="河北经贸大学"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp"
+                android:text="现居住地："/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:textSize="15sp"
+                android:text="石家庄"/>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:background="#00ff00"
+            android:id="@+id/user_friends"
+            android:onClick="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_launcher"/>
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+               android:gravity="center_vertical"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="4dp"
+                android:textSize="15sp"
+                android:text="Friends"/>
+            </LinearLayout>
+        </LinearLayout>
+    <TabHost
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:id="@android:id/tabhost"
+        >
+        <LinearLayout android:layout_width="fill_parent"
+            android:orientation="vertical" android:layout_height="fill_parent"
+            >
+            <TabWidget android:id="@android:id/tabs"
+                android:layout_width="fill_parent" android:layout_height="wrap_content"
+                ></TabWidget>
+            <FrameLayout android:id="@android:id/tabcontent"
+                android:layout_height="wrap_content" android:layout_width="fill_parent"
+                >
+                <LinearLayout android:id="@+id/LinearLayout001" android:orientation="vertical"
+                    android:layout_width="fill_parent" android:layout_height="fill_parent"
+                    >
+                    <ListView
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:id="@+id/user_details_list"
+                        android:background="@drawable/grey_background"
+                        android:choiceMode="singleChoice"
+                        android:fastScrollEnabled="true"/>
+
+                </LinearLayout>
+                <LinearLayout android:id="@+id/LinearLayout002"
+                    android:layout_width="fill_parent" android:layout_height="fill_parent"
+                    >
+                    <ListView
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:id="@+id/user_page_list"
+                        android:background="@drawable/grey_background"
+                        android:choiceMode="singleChoice"
+                        android:fastScrollEnabled="true">
+
+                    </ListView>
+
+                </LinearLayout>
+                <LinearLayout android:id="@+id/LinearLayout003"
+                    android:layout_width="fill_parent" android:layout_height="fill_parent"
+                    >
+                    <ListView
+                        android:layout_height="match_parent"
+                        android:layout_width="280dp"
+                        android:id="@+id/navigation_list"
+                        android:background="@drawable/grey_background"
+                        android:choiceMode="singleChoice"
+                        android:fastScrollEnabled="true">
+
+                    </ListView>
+
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+</LinearLayout>

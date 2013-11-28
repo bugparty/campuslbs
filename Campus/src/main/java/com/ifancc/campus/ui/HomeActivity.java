@@ -2,6 +2,7 @@ package com.ifancc.campus.ui;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -13,8 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.ifancc.campus.R;
+import com.ifancc.campus.ui.user.Info;
 
 public class HomeActivity extends BaseActivity {
     private ListView mNavigation_list;
@@ -25,12 +28,14 @@ public class HomeActivity extends BaseActivity {
     private String mTitle = "hello";
     private String mDrawerTitle = "drawer";
     private ActionBar mActionBar;
+    private RelativeLayout user_homePage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        user_homePage=(RelativeLayout)findViewById(R.id.user_homePage);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.homeDrawer);
         mNavigation_list = (ListView) findViewById(R.id.navigation_list);
         mActionBar = getSupportActionBar();
@@ -46,6 +51,16 @@ public class HomeActivity extends BaseActivity {
         //Enable ActionBar Button
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
+
+        user_homePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(HomeActivity.this,Info.class);
+                startActivity(intent);
+                overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
+            }
+        });
 
     }
 
