@@ -22,6 +22,7 @@ import com.ifancc.campus.ui.user.Info;
 public class HomeActivity extends BaseActivity {
     private ListView mNavigation_list;
     private String[] mNavigation_texts;
+
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private View mLeftDrawer;
@@ -48,6 +49,7 @@ public class HomeActivity extends BaseActivity {
         mNavigation_list.setAdapter(new ArrayAdapter<String>(this, R.layout.navigation_list_item,
                 R.id.navigation_list_tv, mNavigation_texts));
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
         //Enable ActionBar Button
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
