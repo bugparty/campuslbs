@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ifancc.campus.R;
+import com.ifancc.campus.ui.user.Register;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -27,6 +28,7 @@ public class LoginActivity extends Activity {
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
+
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello",
             "bar@example.com:world"
@@ -52,12 +54,22 @@ public class LoginActivity extends Activity {
     private View mLoginFormView;
     private View mLoginStatusView;
     private TextView mLoginStatusMessageView;
+    private TextView login_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+
+        login_register=(TextView)findViewById(R.id.login_register);
+        login_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this, Register.class);
+                startActivity(intent);
+            }
+        });
 
         // Set up the login form.
         mEmail = getIntent().getStringExtra(EXTRA_EMAIL);

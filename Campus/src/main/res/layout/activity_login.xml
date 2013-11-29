@@ -112,11 +112,13 @@
                        android:text="|"
                        android:layout_weight="2.09" />
                  <TextView
+                     android:id="@+id/login_register"
                        android:layout_height="wrap_content"
                        android:layout_width="wrap_content"
                        android:layout_marginRight="15dp"
                        android:text="注册账号"
-                       android:layout_weight="2.09" />
+                       android:layout_weight="2.09"
+                     android:onClick="true"/>
                </LinearLayout>
            </LinearLayout>
 
