@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ifancc.campus.R;
+import com.ifancc.campus.ui.user.Finpas;
 import com.ifancc.campus.ui.user.Register;
 
 /**
@@ -55,6 +56,7 @@ public class LoginActivity extends Activity {
     private View mLoginStatusView;
     private TextView mLoginStatusMessageView;
     private TextView login_register;
+    private TextView login_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +73,23 @@ public class LoginActivity extends Activity {
             }
         });
 
+        login_password=(TextView)findViewById(R.id.login_password);
+        login_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this, Finpas.class);
+                startActivity(intent);
+            }
+        });
+
         // Set up the login form.
         mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
         mEmailView = (EditText) findViewById(R.id.email);
         mEmailView.setText(mEmail);
 
+
         mPasswordView = (EditText) findViewById(R.id.password);
+
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {

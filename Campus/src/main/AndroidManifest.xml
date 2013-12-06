@@ -34,7 +34,8 @@
         <activity android:name="com.ifancc.campus.ui.user.Info" />
         <activity
             android:name="com.ifancc.campus.ui.user.Register"/>
-
+        <activity
+            android:name="com.ifancc.campus.ui.user.Finpas"/>
     </application>
 
 </manifest>
