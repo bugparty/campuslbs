@@ -14,11 +14,25 @@ import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Finpas;
 import com.ifancc.campus.ui.user.Register;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -29,12 +43,6 @@ public class LoginActivity extends Activity {
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello",
-            "bar@example.com:world"
-    };
-
     /**
      * The default email to populate the email field with.
      */
@@ -57,6 +65,7 @@ public class LoginActivity extends Activity {
     private TextView mLoginStatusMessageView;
     private TextView login_register;
     private TextView login_password;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,9 +137,8 @@ public class LoginActivity extends Activity {
      */
     public void attemptLogin() {
 
-        Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
-        startActivity(intent);
-      /*f (mAuthTask != null) {
+
+      if (mAuthTask != null) {
             return;
         }
 
@@ -178,7 +186,7 @@ public class LoginActivity extends Activity {
             showProgress(true);
             mAuthTask = new UserLoginTask();
             mAuthTask.execute((Void) null);
-        }*/
+        }
     }
 
     /**
@@ -226,26 +234,64 @@ public class LoginActivity extends Activity {
      * the user.
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-        @Override
+        /**
+         * 服务器
+         */
+        //服务器的url地址
+        private static final String url="http://www.baidu.com:8080/fc";
+        //创建一个httpClient连接
+        private HttpClient httpClient;
+        //创建一个HttpResponse用于存放相应的数据
+        private HttpResponse response;
+        //创建一个HttpPost请求
+        private HttpPost httpPost;
+        //创建一个httpEntity用于存放请求的实体数据
+        private HttpEntity entity;
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
+            httpClient=new DefaultHttpClient();
+            try{
+                //设置请求的路径
+                httpPost = new HttpPost(url+"/JSONServlet");
+                //创建一个用户，用于向服务端发送数据时，存放的实体
+                JSONObject data = new JSONObject();
+                try {
+                    //将用户填写的账号和密码存放到JSONObject中
+                    data.put("email", mEmail);
+                    data.put("password", mPassword);
+                } catch (JSONException e1) {
+                    e1.printStackTrace();
                 }
-            }
+                //设置请求体
+                httpPost.setEntity(new StringEntity(data.toString()));
+                //执行请求获取响应
+                response = httpClient.execute(httpPost);
+                //如果响应的状态码为200时，表示请求响应成功
+                while(response.getStatusLine().getStatusCode()== HttpStatus.SC_OK){
+                    //获取响应的实体数据
+                    entity=response.getEntity();
+                    StringBuffer sb=new StringBuffer();
+                    //通过reader读取实体对象包含的数据
+                    BufferedReader reader=new BufferedReader(new InputStreamReader(entity.getContent()));
+                    //循环读取实体里面的数据
+                    String s = null;
+                    while((s = reader.readLine()) != null){
+                        sb.append(s);
+                    }
+                    //创建一个JSONObject对象存放从服务端获取到的JSONObject数据
+                    JSONObject datas = new JSONObject(sb.toString());
+                    //创建一个boolean变量用于存放服务端的处理结果状态
+                    boolean result = datas.getBoolean("result");
+                    System.out.println(datas.toString());
+                    if(result== true){
+                        return true;
+                    }else{//如果服务端的处理结果状态为false时
+                        return false;
+                    }
 
-            // TODO: register the new account here.
+                }
+            }catch (Exception e){
+            }
             return true;
         }
 
@@ -255,7 +301,8 @@ public class LoginActivity extends Activity {
             showProgress(false);
 
             if (success) {
-                finish();
+                Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
