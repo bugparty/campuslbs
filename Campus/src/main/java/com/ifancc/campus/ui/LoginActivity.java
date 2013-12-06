@@ -238,7 +238,7 @@ public class LoginActivity extends Activity {
          * 服务器
          */
         //服务器的url地址
-        private static final String url="http://www.baidu.com:8080/fc";
+        private static final String url="http://campuslbs.duapp.com/capi";
         //创建一个httpClient连接
         private HttpClient httpClient;
         //创建一个HttpResponse用于存放相应的数据
@@ -250,9 +250,10 @@ public class LoginActivity extends Activity {
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
             httpClient=new DefaultHttpClient();
+            boolean loginStatus = false;
             try{
                 //设置请求的路径
-                httpPost = new HttpPost(url+"/JSONServlet");
+                httpPost = new HttpPost(url+"/login");
                 //创建一个用户，用于向服务端发送数据时，存放的实体
                 JSONObject data = new JSONObject();
                 try {
@@ -281,18 +282,18 @@ public class LoginActivity extends Activity {
                     //创建一个JSONObject对象存放从服务端获取到的JSONObject数据
                     JSONObject datas = new JSONObject(sb.toString());
                     //创建一个boolean变量用于存放服务端的处理结果状态
-                    boolean result = datas.getBoolean("result");
+                    int status = datas.getInt("status");
                     System.out.println(datas.toString());
-                    if(result== true){
-                        return true;
+                    if(status == 3){
+                        loginStatus = true;
                     }else{//如果服务端的处理结果状态为false时
-                        return false;
+                        loginStatus = false;
                     }
 
                 }
             }catch (Exception e){
             }
-            return true;
+            return loginStatus;
         }
 
         @Override
