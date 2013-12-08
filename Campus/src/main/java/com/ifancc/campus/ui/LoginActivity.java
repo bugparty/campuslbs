@@ -3,23 +3,23 @@ package com.ifancc.campus.ui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Finpas;
 import com.ifancc.campus.ui.user.Register;
+import com.ifancc.campus.util.LogUtils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -38,7 +38,7 @@ import java.io.InputStreamReader;
  * Activity which displays a login screen to the user, offering registration as
  * well.
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends BaseActivity {
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -66,6 +66,7 @@ public class LoginActivity extends Activity {
     private TextView login_register;
     private TextView login_password;
 
+    private String TAG = LogUtils.makeLogTag(LoginActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -233,7 +234,7 @@ public class LoginActivity extends Activity {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+    public class UserLoginTask extends AsyncTask<Void, Void, Integer> {
         /**
          * 服务器
          */
@@ -247,10 +248,10 @@ public class LoginActivity extends Activity {
         private HttpPost httpPost;
         //创建一个httpEntity用于存放请求的实体数据
         private HttpEntity entity;
-        protected Boolean doInBackground(Void... params) {
+        protected Integer doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
             httpClient=new DefaultHttpClient();
-            boolean loginStatus = false;
+            int loginStatus = 0;
             try{
                 //设置请求的路径
                 httpPost = new HttpPost(url+"/login");
@@ -268,41 +269,51 @@ public class LoginActivity extends Activity {
                 //执行请求获取响应
                 response = httpClient.execute(httpPost);
                 //如果响应的状态码为200时，表示请求响应成功
+                Log.d(TAG, "post request");
                 while(response.getStatusLine().getStatusCode()== HttpStatus.SC_OK){
                     //获取响应的实体数据
                     entity=response.getEntity();
-                    StringBuffer sb=new StringBuffer();
+                    StringBuilder sb=new StringBuilder();
                     //通过reader读取实体对象包含的数据
                     BufferedReader reader=new BufferedReader(new InputStreamReader(entity.getContent()));
                     //循环读取实体里面的数据
-                    String s = null;
+                    String s;
                     while((s = reader.readLine()) != null){
                         sb.append(s);
                     }
                     //创建一个JSONObject对象存放从服务端获取到的JSONObject数据
                     JSONObject datas = new JSONObject(sb.toString());
                     //创建一个boolean变量用于存放服务端的处理结果状态
-                    int status = datas.getInt("status");
-                    System.out.println(datas.toString());
-                    if(status == 3){
-                        loginStatus = true;
-                    }else{//如果服务端的处理结果状态为false时
-                        loginStatus = false;
-                    }
+                    loginStatus = datas.getInt("status");
+                    System.out.println("Campus"+datas.toString());
+                    Log.d(TAG, "the status is "+loginStatus);
+
 
                 }
+                if(loginStatus == 0){
+                    Log.d(TAG, response.getStatusLine().toString());
+                    BufferedReader reader = new BufferedReader(new InputStreamReader( response.getEntity().getContent()));
+                    StringBuilder sb = new StringBuilder();
+                    String s;
+                    Log.d(TAG, "html body dumped");
+                    while( (s= reader.readLine()) != null){
+                        sb.append(s);
+                    }
+                    Log.v(TAG, sb.toString());
+                }
             }catch (Exception e){
+                e.printStackTrace();
             }
             return loginStatus;
         }
 
         @Override
-        protected void onPostExecute(final Boolean success) {
+        protected void onPostExecute(final Integer status) {
             mAuthTask = null;
             showProgress(false);
 
-            if (success) {
-                Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
+            if (status == 3) {
+                Intent intent=new Intent(LoginActivity.this,HomeActionBar.class);
                 startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
