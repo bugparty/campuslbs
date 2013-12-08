@@ -26,8 +26,10 @@ public class HomeActivity extends BaseActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private View mLeftDrawer;
+    private View mRightDrawer;
     private String mTitle = "hello";
     private String mDrawerTitle = "drawer";
+
     private ActionBar mActionBar;
     private RelativeLayout user_homePage;
 
@@ -41,7 +43,8 @@ public class HomeActivity extends BaseActivity {
         mNavigation_list = (ListView) findViewById(R.id.navigation_list);
         mActionBar = getSupportActionBar();
         mLeftDrawer = findViewById(R.id.leftDrawer);
-        mDrawerToggle = new NavigationActionDrawerToggle(this,mDrawerLayout,R.drawable.ic_drawer,
+        mRightDrawer = findViewById(R.id.RightDrawer);
+       mDrawerToggle = new NavigationActionDrawerToggle(this,mDrawerLayout,R.drawable.ic_drawer,
                 R.string.open_drawer,R.string.close_drawer);
 
 
@@ -79,12 +82,13 @@ public class HomeActivity extends BaseActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mLeftDrawer);
+
         //hide some menu item
        // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
 
         return super.onPrepareOptionsMenu(menu);
     }
-    @Override
+     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
