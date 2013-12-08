@@ -18,8 +18,8 @@ import com.ifancc.campus.util.LogUtils;
 
 import com.ifancc.campus.R;
 
-public class MainActivity extends BaseActivity implements ActionBar.TabListener {
-    private static final String TAG = LogUtils.makeLogTag(MainActivity.class);
+public class MainActionBar extends BaseActionBar implements ActionBar.TabListener {
+    private static final String TAG = LogUtils.makeLogTag(MainActionBar.class);
     private ViewPager mViewPager;
 
     @Override

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +18,7 @@ import android.widget.RelativeLayout;
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Info;
 
-public class HomeActivity extends BaseActivity {
+public class HomeActionBar extends BaseActionBar {
     private ListView mNavigation_list;
     private String[] mNavigation_texts;
 
@@ -29,14 +28,14 @@ public class HomeActivity extends BaseActivity {
     private String mTitle = "hello";
     private String mDrawerTitle = "drawer";
     private ActionBar mActionBar;
-    private RelativeLayout user_homePage;
+    private RelativeLayout mMainPage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        user_homePage=(RelativeLayout)findViewById(R.id.user_homePage);
+        mMainPage=(RelativeLayout)findViewById(R.id.user_homePage);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.homeDrawer);
         mNavigation_list = (ListView) findViewById(R.id.navigation_list);
         mActionBar = getSupportActionBar();
@@ -54,11 +53,11 @@ public class HomeActivity extends BaseActivity {
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
 
-        user_homePage.setOnClickListener(new View.OnClickListener() {
+        mMainPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(HomeActivity.this,Info.class);
+                intent = new Intent(HomeActionBar.this,Info.class);
                 startActivity(intent);
                 overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
             }
