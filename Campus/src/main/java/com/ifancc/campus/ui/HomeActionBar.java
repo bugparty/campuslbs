@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Info;
 
-public class HomeActionBar extends BaseActionBar {
+public class HomeActionBar extends BaseActivity {
     private ListView mNavigation_list;
     private String[] mNavigation_texts;
 
