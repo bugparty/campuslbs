@@ -1,10 +1,8 @@
 package com.ifancc.campus.ui.user;
 
-import android.app.ActionBar;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,11 +12,9 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 
 import com.ifancc.campus.R;
-import com.ifancc.campus.ui.BaseActivity;
 import com.ifancc.campus.ui.HomeActivity;
-
 /**
- * Created by Administrator on 13-11-17.
+ * Created by LiPengfei on 13-11-17.
  */
 public class Info extends TabActivity {
     private TabHost mTabHost = null;
