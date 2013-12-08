@@ -315,7 +315,7 @@ public class LoginActivity extends BaseActivity {
             showProgress(false);
 
             if (status == 3) {
-                Intent intent=new Intent(LoginActivity.this,HomeActionBar.class);
+                Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
                 startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
