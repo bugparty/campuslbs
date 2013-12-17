@@ -31,6 +31,7 @@ public class HomeActivity extends BaseActivity {
     private String mDrawerTitle = "drawer";
     private ActionBar mActionBar;
     private RelativeLayout user_homePage;
+    private View mHomeListView;
     private CardsFragment mHomeList;
     private static final String TAG = LogUtils.makeLogTag(HomeActivity.class);
 
