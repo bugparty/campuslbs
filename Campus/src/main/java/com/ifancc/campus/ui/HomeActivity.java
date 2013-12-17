@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
@@ -30,6 +31,7 @@ public class HomeActivity extends BaseActivity {
     private String mDrawerTitle = "drawer";
     private ActionBar mActionBar;
     private RelativeLayout user_homePage;
+    private CardsFragment mHomeList;
     private static final String TAG = LogUtils.makeLogTag(HomeActivity.class);
 
 
@@ -37,6 +39,13 @@ public class HomeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //Dynamic load the ListFragment for Home Screen
+        mHomeListView = findViewById(R.id.home_listview);
+        mHomeList = new CardsFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.home_listview,mHomeList).commit();
+
+
+
         user_homePage=(RelativeLayout)findViewById(R.id.user_homePage);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.homeDrawer);
         mNavigation_list = (ListView) findViewById(R.id.navigation_list);
