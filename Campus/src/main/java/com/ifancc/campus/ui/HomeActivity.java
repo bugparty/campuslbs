@@ -2,6 +2,7 @@ package com.ifancc.campus.ui;
 
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.ifancc.campus.Map.MapActivity;
+import com.ifancc.campus.ui.Map.MapActivity;
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Info;
 import com.ifancc.campus.util.LogUtils;
@@ -69,10 +70,7 @@ public class HomeActivity extends BaseActivity {
         user_homePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
-                intent = new Intent(HomeActivity.this,Info.class);
-                startActivity(intent);
-                overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
+               gotoHomeActivity();
             }
         });
 
@@ -130,7 +128,19 @@ public class HomeActivity extends BaseActivity {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
+    private void gotoHomeActivity(){
+        Intent intent;
+        intent = new Intent(HomeActivity.this,Info.class);
+        startActivity(intent);
+        overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
+    }
+    private class UserIconOnClickListener implements View.OnClickListener{
 
+        @Override
+        public void onClick(View view) {
+            gotoHomeActivity();
+        }
+    }
     //handle Drawer Open and Close
     private class NavigationActionDrawerToggle extends ActionBarDrawerToggle{
         public NavigationActionDrawerToggle(Activity activity, DrawerLayout drawerLayout,

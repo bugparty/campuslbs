@@ -76,7 +76,7 @@
             android:name="com.ifancc.campus.ui.user.Register"/>
         <activity
             android:name="com.ifancc.campus.ui.user.Finpas"/>
-        <activity android:name="com.ifancc.campus.Map.MapActivity"
+        <activity android:name=".ui.Map.MapActivity"
             android:screenOrientation="sensor"
             android:configChanges="orientation|keyboardHidden"
             />

@@ -1,4 +1,4 @@
-package com.ifancc.campus.Map;
+package com.ifancc.campus.ui.Map;
 
 import android.app.Activity;
 import android.os.Bundle;

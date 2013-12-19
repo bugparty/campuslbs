@@ -3,7 +3,6 @@ package com.ifancc.campus.ui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -15,7 +14,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ifancc.campus.R;
@@ -65,8 +63,9 @@ public class LoginActivity extends BaseActivity {
     private View mLoginFormView;
     private View mLoginStatusView;
     private TextView mLoginStatusMessageView;
-    private TextView login_register;
-    private TextView login_password;
+    private TextView mLoginRegister;
+    private TextView mLogin_password;
+    private View  mUserIcon;
 
     private String TAG = LogUtils.makeLogTag(LoginActivity.class);
 
@@ -75,21 +74,28 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        mUserIcon = findViewById(R.id.user_icon);
+        mUserIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoHomeActivity();
+            }
+        });
 
-        login_register=(TextView)findViewById(R.id.login_register);
-        login_register.setOnClickListener(new View.OnClickListener() {
+        mLoginRegister =(TextView)findViewById(R.id.login_register);
+        mLoginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this, Register.class);
+                Intent intent = new Intent(LoginActivity.this, Register.class);
                 startActivity(intent);
             }
         });
 
-        login_password=(TextView)findViewById(R.id.login_password);
-        login_password.setOnClickListener(new View.OnClickListener() {
+        mLogin_password =(TextView)findViewById(R.id.login_password);
+        mLogin_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this, Finpas.class);
+                Intent intent = new Intent(LoginActivity.this, Finpas.class);
                 startActivity(intent);
             }
         });
@@ -231,7 +237,10 @@ public class LoginActivity extends BaseActivity {
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
-
+    private void gotoHomeActivity(){
+        Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
+        startActivity(intent);
+    }
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -315,8 +324,7 @@ public class LoginActivity extends BaseActivity {
             showProgress(false);
 
             if (status == 3) {
-                Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
-                startActivity(intent);
+               gotoHomeActivity();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

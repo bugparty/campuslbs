@@ -25,9 +25,8 @@ import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
-import com.ifancc.campus.Map.MapActivity;
+import com.ifancc.campus.ui.Map.MapActivity;
 import com.ifancc.campus.R;
-import com.ifancc.campus.ui.HomeActivity;
 
 import java.io.File;
 
