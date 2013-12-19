@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
+import com.ifancc.campus.Map.MapActivity;
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.HomeActivity;
 
@@ -78,7 +79,7 @@ public class Info extends TabActivity implements View.OnClickListener{
         muser_friends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Info.this,HomeActivity.class);
+                Intent intent=new Intent(Info.this,MapActivity.class);
                 startActivity(intent);
             }
         });

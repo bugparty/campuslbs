@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.ifancc.campus.Map.MapActivity;
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Info;
 import com.ifancc.campus.util.LogUtils;
@@ -110,7 +111,9 @@ public class HomeActivity extends BaseActivity {
 
         switch (item.getItemId()) {
             case R.id.action_settings:
-                return true;
+                Intent intent=new Intent(HomeActivity.this, MapActivity.class);
+                startActivity(intent);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
