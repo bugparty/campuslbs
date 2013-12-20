@@ -20,6 +20,12 @@ android {
         targetSdkVersion 18
     }
     signingConfigs {
+        debug {
+            storePassword 'hujin521'
+            storeFile file('..\\uml\\campus.jks')
+            keyAlias 'campus'
+            keyPassword 'hujin521'
+        }
         campus {
             storePassword 'hujin521'
             storeFile file('..\\uml\\campus.jks')

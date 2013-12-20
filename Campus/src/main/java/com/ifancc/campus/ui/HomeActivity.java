@@ -2,12 +2,10 @@ package com.ifancc.campus.ui;
 
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
@@ -17,8 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.ifancc.campus.ui.Map.MapActivity;
 import com.ifancc.campus.R;
+import com.ifancc.campus.ui.Map.MapActivity;
 import com.ifancc.campus.ui.user.Info;
 import com.ifancc.campus.util.LogUtils;
 
@@ -45,17 +43,16 @@ public class HomeActivity extends BaseActivity {
         //Dynamic load the ListFragment for Home Screen
         mHomeListView = findViewById(R.id.home_listview);
         mHomeList = new CardsFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.home_listview,mHomeList).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.home_listview, mHomeList).commit();
 
 
-
-        user_homePage=(RelativeLayout)findViewById(R.id.user_homePage);
+        user_homePage = (RelativeLayout) findViewById(R.id.user_homePage);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.homeDrawer);
         mNavigation_list = (ListView) findViewById(R.id.navigation_list);
         mActionBar = getSupportActionBar();
         mLeftDrawer = findViewById(R.id.leftDrawer);
-        mDrawerToggle = new NavigationActionDrawerToggle(this,mDrawerLayout,R.drawable.ic_drawer,
-                R.string.open_drawer,R.string.close_drawer);
+        mDrawerToggle = new NavigationActionDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer,
+                R.string.open_drawer, R.string.close_drawer);
 
 
         mNavigation_texts = getResources().getStringArray(R.array.navigation_list);
@@ -70,7 +67,7 @@ public class HomeActivity extends BaseActivity {
         user_homePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               gotoHomeActivity();
+                gotoHomeActivity();
             }
         });
 
@@ -84,16 +81,18 @@ public class HomeActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
+
     /* Called whenever we call invalidateOptionsMenu() */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mLeftDrawer);
         //hide some menu item
-       // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+        // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
 
         return super.onPrepareOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -109,13 +108,14 @@ public class HomeActivity extends BaseActivity {
 
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent intent=new Intent(HomeActivity.this, MapActivity.class);
+                Intent intent = new Intent(HomeActivity.this, MapActivity.class);
                 startActivity(intent);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -128,34 +128,41 @@ public class HomeActivity extends BaseActivity {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
-    private void gotoHomeActivity(){
+
+    private void gotoHomeActivity() {
         Intent intent;
-        intent = new Intent(HomeActivity.this,Info.class);
+        intent = new Intent(HomeActivity.this, Info.class);
         startActivity(intent);
-        overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
+        overridePendingTransition(R.anim.out_form_left, R.anim.in_form_right);
     }
-    private class UserIconOnClickListener implements View.OnClickListener{
+
+    private class UserIconOnClickListener implements View.OnClickListener {
 
         @Override
         public void onClick(View view) {
             gotoHomeActivity();
         }
     }
+
     //handle Drawer Open and Close
-    private class NavigationActionDrawerToggle extends ActionBarDrawerToggle{
+    private class NavigationActionDrawerToggle extends ActionBarDrawerToggle {
         public NavigationActionDrawerToggle(Activity activity, DrawerLayout drawerLayout,
                                             int drawerImageRes, int openDrawerContentDescRes,
                                             int closeDrawerContentDescRes) {
             super(activity, drawerLayout, drawerImageRes, openDrawerContentDescRes, closeDrawerContentDescRes);
         }
 
-        /** Called when a drawer has settled in a completely closed state. */
+        /**
+         * Called when a drawer has settled in a completely closed state.
+         */
         public void onDrawerClosed(View view) {
             getSupportActionBar().setTitle(mTitle);
             invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
         }
 
-        /** Called when a drawer has settled in a completely open state. */
+        /**
+         * Called when a drawer has settled in a completely open state.
+         */
 
         public void onDrawerOpened(View drawerView) {
             getSupportActionBar().setTitle(mDrawerTitle);

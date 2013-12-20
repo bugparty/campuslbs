@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Info;
+
 public class HomeActionBar extends BaseActivity {
     private ListView mNavigation_list;
     private String[] mNavigation_texts;
@@ -34,13 +35,13 @@ public class HomeActionBar extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        mMainPage=(RelativeLayout)findViewById(R.id.user_homePage);
+        mMainPage = (RelativeLayout) findViewById(R.id.user_homePage);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.homeDrawer);
         mNavigation_list = (ListView) findViewById(R.id.navigation_list);
         mActionBar = getSupportActionBar();
         mLeftDrawer = findViewById(R.id.leftDrawer);
-        mDrawerToggle = new NavigationActionDrawerToggle(this,mDrawerLayout,R.drawable.ic_drawer,
-                R.string.open_drawer,R.string.close_drawer);
+        mDrawerToggle = new NavigationActionDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer,
+                R.string.open_drawer, R.string.close_drawer);
 
 
         mNavigation_texts = getResources().getStringArray(R.array.navigation_list);
@@ -56,9 +57,9 @@ public class HomeActionBar extends BaseActivity {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(HomeActionBar.this,Info.class);
+                intent = new Intent(HomeActionBar.this, Info.class);
                 startActivity(intent);
-                overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
+                overridePendingTransition(R.anim.out_form_left, R.anim.in_form_right);
             }
         });
 
@@ -72,16 +73,18 @@ public class HomeActionBar extends BaseActivity {
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
+
     /* Called whenever we call invalidateOptionsMenu() */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mLeftDrawer);
         //hide some menu item
-       // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
+        // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
 
         return super.onPrepareOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -102,6 +105,7 @@ public class HomeActionBar extends BaseActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -116,20 +120,24 @@ public class HomeActionBar extends BaseActivity {
     }
 
     //handle Drawer Open and Close
-    private class NavigationActionDrawerToggle extends ActionBarDrawerToggle{
+    private class NavigationActionDrawerToggle extends ActionBarDrawerToggle {
         public NavigationActionDrawerToggle(Activity activity, DrawerLayout drawerLayout,
                                             int drawerImageRes, int openDrawerContentDescRes,
                                             int closeDrawerContentDescRes) {
             super(activity, drawerLayout, drawerImageRes, openDrawerContentDescRes, closeDrawerContentDescRes);
         }
 
-        /** Called when a drawer has settled in a completely closed state. */
+        /**
+         * Called when a drawer has settled in a completely closed state.
+         */
         public void onDrawerClosed(View view) {
             getSupportActionBar().setTitle(mTitle);
             invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
         }
 
-        /** Called when a drawer has settled in a completely open state. */
+        /**
+         * Called when a drawer has settled in a completely open state.
+         */
 
         public void onDrawerOpened(View drawerView) {
             getSupportActionBar().setTitle(mDrawerTitle);

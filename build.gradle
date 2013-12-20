@@ -4,5 +4,5 @@
 apply plugin: 'compare-gradle-builds'
 
 compareGradleBuilds {
-	targetBuild.gradleVersion = '1.9'
-	}
+    targetBuild.gradleVersion = '1.9'
+}

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -15,10 +15,11 @@
         android:layout_gravity="left"
         android:id="@+id/name"
         android:textSize="20sp"
-        android:text="Text View"/>
+        android:text="Text View" />
+
     <TextView
         android:layout_height="1dp"
         android:layout_width="match_parent"
-        android:background="#000000"/>
+        android:background="#000000" />
 
-    </LinearLayout>
+</LinearLayout>
