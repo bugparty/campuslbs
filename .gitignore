@@ -15,8 +15,10 @@
 *.class
 
 # generated files
+Campus/build/
 bin/
 gen/
+
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -34,4 +36,6 @@ proguard/
 *.iws
 .idea/
 
+#python files
+*.pyc
 >>>>>>> 7ef2fa9d01400e0f06e10bb6295ff610ad366d08
