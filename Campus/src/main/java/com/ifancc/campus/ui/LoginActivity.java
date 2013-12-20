@@ -65,7 +65,7 @@ public class LoginActivity extends BaseActivity {
     private TextView mLoginStatusMessageView;
     private TextView mLoginRegister;
     private TextView mLogin_password;
-    private View  mUserIcon;
+    private View mUserIcon;
 
     private String TAG = LogUtils.makeLogTag(LoginActivity.class);
 
@@ -82,7 +82,7 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        mLoginRegister =(TextView)findViewById(R.id.login_register);
+        mLoginRegister = (TextView) findViewById(R.id.login_register);
         mLoginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +91,7 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-        mLogin_password =(TextView)findViewById(R.id.login_password);
+        mLogin_password = (TextView) findViewById(R.id.login_password);
         mLogin_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,7 +147,7 @@ public class LoginActivity extends BaseActivity {
     public void attemptLogin() {
 
 
-      if (mAuthTask != null) {
+        if (mAuthTask != null) {
             return;
         }
 
@@ -237,10 +237,12 @@ public class LoginActivity extends BaseActivity {
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
-    private void gotoHomeActivity(){
-        Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
+
+    private void gotoHomeActivity() {
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         startActivity(intent);
     }
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
@@ -250,7 +252,7 @@ public class LoginActivity extends BaseActivity {
          * 服务器
          */
         //服务器的url地址
-        private static final String url="http://campuslbs.duapp.com/capi";
+        private static final String url = "http://campuslbs.duapp.com/capi";
         //创建一个httpClient连接
         private HttpClient httpClient;
         //创建一个HttpResponse用于存放相应的数据
@@ -259,13 +261,14 @@ public class LoginActivity extends BaseActivity {
         private HttpPost httpPost;
         //创建一个httpEntity用于存放请求的实体数据
         private HttpEntity entity;
+
         protected Integer doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-            httpClient=new DefaultHttpClient();
+            httpClient = new DefaultHttpClient();
             int loginStatus = 0;
-            try{
+            try {
                 //设置请求的路径
-                httpPost = new HttpPost(url+"/login");
+                httpPost = new HttpPost(url + "/login");
                 //创建一个用户，用于向服务端发送数据时，存放的实体
                 JSONObject data = new JSONObject();
                 try {
@@ -281,38 +284,38 @@ public class LoginActivity extends BaseActivity {
                 response = httpClient.execute(httpPost);
                 //如果响应的状态码为200时，表示请求响应成功
                 Log.d(TAG, "post request");
-                while(response.getStatusLine().getStatusCode()== HttpStatus.SC_OK){
+                while (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                     //获取响应的实体数据
-                    entity=response.getEntity();
-                    StringBuilder sb=new StringBuilder();
+                    entity = response.getEntity();
+                    StringBuilder sb = new StringBuilder();
                     //通过reader读取实体对象包含的数据
-                    BufferedReader reader=new BufferedReader(new InputStreamReader(entity.getContent()));
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()));
                     //循环读取实体里面的数据
                     String s;
-                    while((s = reader.readLine()) != null){
+                    while ((s = reader.readLine()) != null) {
                         sb.append(s);
                     }
                     //创建一个JSONObject对象存放从服务端获取到的JSONObject数据
                     JSONObject datas = new JSONObject(sb.toString());
                     //创建一个boolean变量用于存放服务端的处理结果状态
                     loginStatus = datas.getInt("status");
-                    System.out.println("Campus"+datas.toString());
-                    Log.d(TAG, "the status is "+loginStatus);
+                    System.out.println("Campus" + datas.toString());
+                    Log.d(TAG, "the status is " + loginStatus);
 
 
                 }
-                if(loginStatus == 0){
+                if (loginStatus == 0) {
                     Log.d(TAG, response.getStatusLine().toString());
-                    BufferedReader reader = new BufferedReader(new InputStreamReader( response.getEntity().getContent()));
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
                     StringBuilder sb = new StringBuilder();
                     String s;
                     Log.d(TAG, "html body dumped");
-                    while( (s= reader.readLine()) != null){
+                    while ((s = reader.readLine()) != null) {
                         sb.append(s);
                     }
                     Log.v(TAG, sb.toString());
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return loginStatus;
@@ -324,7 +327,7 @@ public class LoginActivity extends BaseActivity {
             showProgress(false);
 
             if (status == 3) {
-               gotoHomeActivity();
+                gotoHomeActivity();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

@@ -1,2 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 //left empty
+
+apply plugin: 'compare-gradle-builds'
+
+compareGradleBuilds {
+    targetBuild.gradleVersion = '1.9'
+}

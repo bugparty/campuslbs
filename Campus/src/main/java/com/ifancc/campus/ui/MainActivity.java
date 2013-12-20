@@ -13,10 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ifancc.campus.util.LogUtils;
-
-
 import com.ifancc.campus.R;
+import com.ifancc.campus.util.LogUtils;
 
 public class MainActivity extends BaseActivity implements ActionBar.TabListener {
     private static final String TAG = LogUtils.makeLogTag(MainActivity.class);

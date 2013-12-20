@@ -25,25 +25,25 @@ import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 
-import com.ifancc.campus.ui.Map.MapActivity;
 import com.ifancc.campus.R;
+import com.ifancc.campus.ui.Map.MapActivity;
 
 import java.io.File;
 
 /**
  * Created by LiPengfei on 13-11-17.
  */
-public class Info extends TabActivity implements View.OnClickListener{
+public class Info extends TabActivity implements View.OnClickListener {
     private TabHost mTabHost = null;
     private TabWidget mTabWidget = null;
     private ListView muserpagelist;
-    private String [] muserpagelistTexts;
-    private String [] muserpagelistText;
+    private String[] muserpagelistTexts;
+    private String[] muserpagelistText;
     private LinearLayout muser_friends;
     private ImageView imageView;
     private File sdcardTempFile;
     private AlertDialog dialog;
-    private int crop=180;
+    private int crop = 180;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +51,9 @@ public class Info extends TabActivity implements View.OnClickListener{
 
         setContentView(R.layout.user_home);
 /*显示App icon左侧的back键*/
-     //   ActionBar actionBar = getActionBar();// actionBar.setDisplayHomeAsUpEnabled(true);
+        //   ActionBar actionBar = getActionBar();// actionBar.setDisplayHomeAsUpEnabled(true);
         //actionBar.setHomeButtonEnabled(true);
-        imageView=(ImageView)findViewById(R.id.imageView11);
+        imageView = (ImageView) findViewById(R.id.imageView11);
         Bitmap bt = BitmapFactory.decodeResource(getResources(), R.drawable.bomanhan);
         imageView.setImageBitmap(toRoundBitmap(bt));
         imageView.setOnClickListener(this);
@@ -68,28 +68,29 @@ public class Info extends TabActivity implements View.OnClickListener{
                 R.id.LinearLayout002).setIndicator("日志"));
         mTabHost.addTab(mTabHost.newTabSpec("tab3").setContent(
                 R.id.LinearLayout003).setIndicator("相册"));
-        muser_friends=(LinearLayout)this.findViewById(R.id.user_friends);
-        muserpagelist=(ListView)this.findViewById(R.id.user_details_list);
+        muser_friends = (LinearLayout) this.findViewById(R.id.user_friends);
+        muserpagelist = (ListView) this.findViewById(R.id.user_details_list);
 
-        muserpagelistTexts=getResources().getStringArray(R.array.userpage_list);
-        muserpagelistText=getResources().getStringArray(R.array.navigation_list);
-        muserpagelist.setAdapter(new ArrayAdapter<String>(this,R.layout.userpagelist_item,R.id.userpage_list_text1,muserpagelistTexts));
+        muserpagelistTexts = getResources().getStringArray(R.array.userpage_list);
+        muserpagelistText = getResources().getStringArray(R.array.navigation_list);
+        muserpagelist.setAdapter(new ArrayAdapter<String>(this, R.layout.userpagelist_item, R.id.userpage_list_text1, muserpagelistTexts));
 
         muser_friends.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Info.this,MapActivity.class);
+                Intent intent = new Intent(Info.this, MapActivity.class);
                 startActivity(intent);
             }
         });
 
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case  android.R.id.home:
+            case android.R.id.home:
                 this.finish();
-                overridePendingTransition(R.anim.out_form_left,R.anim.in_form_right);
+                overridePendingTransition(R.anim.out_form_left, R.anim.in_form_right);
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -98,15 +99,15 @@ public class Info extends TabActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         // TODO Auto-generated method stub
-        if(v==imageView){
-            if(dialog==null){
-                dialog=new AlertDialog.Builder(this).setItems(new String[]{"相机","相册"},
+        if (v == imageView) {
+            if (dialog == null) {
+                dialog = new AlertDialog.Builder(this).setItems(new String[]{"相机", "相册"},
                         new DialogInterface.OnClickListener() {
 
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 // TODO Auto-generated method stub
-                                if(which==0){
+                                if (which == 0) {
                                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                                     intent.putExtra("output", Uri.fromFile(sdcardTempFile));
                                     intent.putExtra("crop", "true");
@@ -118,8 +119,7 @@ public class Info extends TabActivity implements View.OnClickListener{
 
                                     startActivityForResult(intent, 101);
 
-                                }
-                                else{
+                                } else {
                                     Intent intent = new Intent("android.intent.action.PICK");
                                     intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
                                     intent.putExtra("output", Uri.fromFile(sdcardTempFile));
@@ -142,6 +142,7 @@ public class Info extends TabActivity implements View.OnClickListener{
         }
 
     }
+
     @Override
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -155,11 +156,12 @@ public class Info extends TabActivity implements View.OnClickListener{
         }
 
     }
+
     public static Bitmap toRoundBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         float roundPx;
-        float left,top,right,bottom,dst_left,dst_top,dst_right,dst_bottom;
+        float left, top, right, bottom, dst_left, dst_top, dst_right, dst_bottom;
         if (width <= height) {
             roundPx = width / 2;
             top = 0;
@@ -191,8 +193,8 @@ public class Info extends TabActivity implements View.OnClickListener{
 
         final int color = 0xff424242;
         final Paint paint = new Paint();
-        final Rect src = new Rect((int)left, (int)top, (int)right, (int)bottom);
-        final Rect dst = new Rect((int)dst_left, (int)dst_top, (int)dst_right, (int)dst_bottom);
+        final Rect src = new Rect((int) left, (int) top, (int) right, (int) bottom);
+        final Rect dst = new Rect((int) dst_left, (int) dst_top, (int) dst_right, (int) dst_bottom);
         final RectF rectF = new RectF(dst);
 
         paint.setAntiAlias(true);

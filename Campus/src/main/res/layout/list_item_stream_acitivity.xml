@@ -14,15 +14,12 @@
   limitations under the License.
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:iosched="http://schemas.android.com/apk/res-auto"
-   style="@style/StreamActivity"
-    >
+    style="@style/StreamActivity">
 
     <!-- Author and metadata box -->
     <RelativeLayout
         android:id="@+id/stream_author_container"
         style="@style/StreamContainer">
-
 
 
         <TextView
@@ -43,15 +40,15 @@
         android:id="@+id/stream_original_container"
         style="@style/StreamOriginalContainer">
 
-        <View android:layout_width="match_parent"
+        <View
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@drawable/list_divider_holo_light"
             android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/stream_original_author"
-            style="@style/StreamOriginalAuthor"/>
-
+            style="@style/StreamOriginalAuthor" />
 
 
     </LinearLayout>
@@ -62,21 +59,23 @@
         style="@style/StreamMediaContainer">
 
         <!-- Always -->
-        <ImageView android:id="@+id/stream_media_background"
+        <ImageView
+            android:id="@+id/stream_media_background"
             style="@style/StreamMediaBackground" />
 
         <!-- Option 1: overlay -->
-        <ImageView android:id="@+id/stream_media_overlay"
+        <ImageView
+            android:id="@+id/stream_media_overlay"
             style="@style/StreamMediaOverlay" />
 
         <!-- Option 2: title and subtitle -->
         <TextView
             android:id="@+id/stream_media_title"
-            style="@style/StreamMediaTitle"/>
+            style="@style/StreamMediaTitle" />
 
         <TextView
             android:id="@+id/stream_media_subtitle"
-            style="@style/StreamMediaSubtitle"/>
+            style="@style/StreamMediaSubtitle" />
     </RelativeLayout>
 
     <!-- Interactions box -->
@@ -86,20 +85,21 @@
 
         <TextView
             android:id="@+id/stream_plus_ones"
-            style="@style/StreamPlusOnes"/>
+            style="@style/StreamPlusOnes" />
 
         <TextView
             android:id="@+id/stream_shares"
-            style="@style/StreamShares"/>
+            style="@style/StreamShares" />
 
         <!-- spacer -->
-        <View android:layout_width="0dp"
+        <View
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/stream_comments"
-            style="@style/StreamComments"/>
+            style="@style/StreamComments" />
 
     </LinearLayout>
 </LinearLayout>
