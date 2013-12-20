@@ -38,6 +38,7 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'com.android.support:support-v4:18.0.0'
-    compile files('lib/baidumapapi_v2_3_1.jar')
-    compile files('lib/armeabi.jar')
+    //automatic add libs from Campus Module
+    compile fileTree(dir:'lib',include:'*.jar')
+
 }
