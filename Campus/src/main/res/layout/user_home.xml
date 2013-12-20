@@ -155,7 +155,7 @@
                     <ListView
                         android:layout_height="match_parent"
                         android:layout_width="280dp"
-                        android:id="@+id/navigation_list"
+                        android:id="@+id/navigation_list1"
                         android:background="@drawable/grey_background"
                         android:choiceMode="singleChoice"
                         android:fastScrollEnabled="true">

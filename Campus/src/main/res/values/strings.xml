@@ -19,13 +19,32 @@
         <item>相册</item>
         <item>社群</item>
         <item>位置信息</item>
-        <item>环聊</item>
+        <item name="chat">环聊</item>
         <item>活动</item>
         <item>搜索</item>
     </string-array>
-
+    <string-array name="nav_classes">
+        <item>com.ifancc.campus.ui.HomeActivity.java</item>
+        <item>com.stylingandroid.adapters.SimpleAdapterFragment</item>
+        <item>com.stylingandroid.adapters.ArrayAdapterObjectFragment</item>
+        <item>com.stylingandroid.adapters.ArrayAdapterImageFragment</item>
+        <item>com.stylingandroid.adapters.CursorAdapterFragment</item>
+        <item>com.ifancc.campus.ui.ChatActivity.java</item>
+        <item></item>
+        <item></item>
+    </string-array>
     <string name="open_drawer">open</string>
     <string name="close_drawer">close</string>
     <string name="title_activity_register">Register</string>
+    <string name="lianxiren"></string>
 
+
+
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
 </resources>
