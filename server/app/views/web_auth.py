@@ -18,8 +18,7 @@ client = APIClient(app_key=APP_KEY,app_secret=APP_SECRET,redirect_uri=CALLBACK_U
 
 url = client.get_authorize_url()
 
-app = Flask(__name__)
-app.debug = True
+from app import app
 
 db_name = 'akeJSVesKeAcLtXPQCTn'
 @app.route("/mongo")

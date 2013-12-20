@@ -11,11 +11,11 @@
         android:background="@drawable/galaxy_mini2">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/imageView"
-            android:background="@drawable/bomanhan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView11"
             android:layout_margin="5dp"
+            android:onClick="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="false" />

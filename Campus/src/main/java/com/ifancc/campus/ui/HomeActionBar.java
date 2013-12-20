@@ -2,12 +2,10 @@ package com.ifancc.campus.ui;
 
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
@@ -17,47 +15,31 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.ifancc.campus.ui.Map.MapActivity;
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.user.Info;
-import com.ifancc.campus.util.LogUtils;
-
-public class HomeActivity extends BaseActivity {
+public class HomeActionBar extends BaseActivity {
     private ListView mNavigation_list;
     private String[] mNavigation_texts;
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private View mLeftDrawer;
-    private View mRightDrawer;
     private String mTitle = "hello";
     private String mDrawerTitle = "drawer";
-
     private ActionBar mActionBar;
-    private RelativeLayout user_homePage;
-    private View mHomeListView;
-    private CardsFragment mHomeList;
-    private static final String TAG = LogUtils.makeLogTag(HomeActivity.class);
+    private RelativeLayout mMainPage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //Dynamic load the ListFragment for Home Screen
-        mHomeListView = findViewById(R.id.home_listview);
-        mHomeList = new CardsFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.home_listview,mHomeList).commit();
-
-
-
-        user_homePage=(RelativeLayout)findViewById(R.id.user_homePage);
+        mMainPage=(RelativeLayout)findViewById(R.id.user_homePage);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.homeDrawer);
         mNavigation_list = (ListView) findViewById(R.id.navigation_list);
         mActionBar = getSupportActionBar();
         mLeftDrawer = findViewById(R.id.leftDrawer);
-        mRightDrawer = findViewById(R.id.RightDrawer);
-       mDrawerToggle = new NavigationActionDrawerToggle(this,mDrawerLayout,R.drawable.ic_drawer,
+        mDrawerToggle = new NavigationActionDrawerToggle(this,mDrawerLayout,R.drawable.ic_drawer,
                 R.string.open_drawer,R.string.close_drawer);
 
 
@@ -70,10 +52,13 @@ public class HomeActivity extends BaseActivity {
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
 
-        user_homePage.setOnClickListener(new View.OnClickListener() {
+        mMainPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               gotoHomeActivity();
+                Intent intent;
+                intent = new Intent(HomeActionBar.this,Info.class);
+                startActivity(intent);
+                overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
             }
         });
 
@@ -92,13 +77,12 @@ public class HomeActivity extends BaseActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mLeftDrawer);
-
         //hide some menu item
        // menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
 
         return super.onPrepareOptionsMenu(menu);
     }
-     @Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -113,9 +97,7 @@ public class HomeActivity extends BaseActivity {
 
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent intent=new Intent(HomeActivity.this, MapActivity.class);
-                startActivity(intent);
-                break;
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -132,19 +114,7 @@ public class HomeActivity extends BaseActivity {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
-    private void gotoHomeActivity(){
-        Intent intent;
-        intent = new Intent(HomeActivity.this,Info.class);
-        startActivity(intent);
-        overridePendingTransition( R.anim.out_form_left,R.anim.in_form_right);
-    }
-    private class UserIconOnClickListener implements View.OnClickListener{
 
-        @Override
-        public void onClick(View view) {
-            gotoHomeActivity();
-        }
-    }
     //handle Drawer Open and Close
     private class NavigationActionDrawerToggle extends ActionBarDrawerToggle{
         public NavigationActionDrawerToggle(Activity activity, DrawerLayout drawerLayout,

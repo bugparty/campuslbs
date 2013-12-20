@@ -3,10 +3,50 @@
     package="com.ifancc.campus"
     android:versionCode="1"
     android:versionName="1.0" >
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="18" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!--使用网络功能所需权限  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE">
+    </uses-permission>
+    <!-- SDK离线地图和cache功能需要读写外部存储器 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS">
+    </uses-permission>
+    <!-- 获取设置信息和详情页直接拨打电话需要以下权限  -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE">
+    </uses-permission>
+    <!-- 使用定位功能所需权限,demo已集成百度定位SDK,不使用定位功能可去掉以下6项 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE">
+    </permission>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_GPS"/>
+
+    <supports-screens android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:resizeable="true"
+        android:anyDensity="true"/>
 
     <application
         android:allowBackup="true"
@@ -36,6 +76,10 @@
             android:name="com.ifancc.campus.ui.user.Register"/>
         <activity
             android:name="com.ifancc.campus.ui.user.Finpas"/>
+        <activity android:name=".ui.Map.MapActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|keyboardHidden"
+            />
     </application>
 
 </manifest>
