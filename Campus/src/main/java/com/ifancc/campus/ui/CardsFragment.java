@@ -60,7 +60,7 @@ public class CardsFragment extends ListFragment {
     private List<Map<String, Object>> getData() {
         List<Map<String, Object>> content = new ArrayList<Map<String, Object>>();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 7; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("username", "bowmanHan");
             map.put("date", "大约一首歌的时间");

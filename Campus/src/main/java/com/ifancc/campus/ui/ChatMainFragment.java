@@ -24,7 +24,7 @@ package com.ifancc.campus.ui;
         import java.util.Map;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class Fragment1 extends ListFragment{
+public class ChatMainFragment extends ListFragment{
     String[] presidents={
             "Dwight D. Eisenhower",
             "John F. Kennedy",

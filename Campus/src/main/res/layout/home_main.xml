@@ -26,7 +26,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
 
-        android:name="com.ifancc.campus.ui.NavigationDrawerFragment"
+        android:name="com.ifancc.campus.ui.ChatNavigationDrawerFragment"
         tools:layout="@layout/simple_list_item_1" />
 
 </android.support.v4.widget.DrawerLayout>

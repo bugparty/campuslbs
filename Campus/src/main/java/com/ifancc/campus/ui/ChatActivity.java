@@ -19,31 +19,31 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.ifancc.campus.R;
 public class ChatActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements ChatNavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+    private ChatNavigationDrawerFragment mChatNavigationDrawerFragment;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    private Fragment1 mMainFragment;
+    private ChatMainFragment mMainFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_main);
-        mMainFragment = new Fragment1();
+        mMainFragment = new ChatMainFragment();
         getFragmentManager().beginTransaction().add(R.id.container,mMainFragment).commit();
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
+        mChatNavigationDrawerFragment = (ChatNavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
         // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
+        mChatNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
