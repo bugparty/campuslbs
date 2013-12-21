@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ifancc.campus.R;
-import com.ifancc.campus.ui.user.Finpas;
+import com.ifancc.campus.ui.user.PasswordRecovery;
 import com.ifancc.campus.ui.user.Register;
 import com.ifancc.campus.util.LogUtils;
 
@@ -95,7 +95,7 @@ public class LoginActivity extends BaseActivity {
         mLogin_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, Finpas.class);
+                Intent intent = new Intent(LoginActivity.this, PasswordRecovery.class);
                 startActivity(intent);
             }
         });

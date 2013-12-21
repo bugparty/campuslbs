@@ -13,7 +13,7 @@
         <item>B</item>
         <item>C</item>
     </string-array>
-    <string-array name="navigation_list">
+    <string-array name="home_navigation_list">
         <item name="Homepage">首页</item>
         <item>人脉</item>
         <item>相册</item>
@@ -30,8 +30,6 @@
         <item>com.stylingandroid.adapters.ArrayAdapterImageFragment</item>
         <item>com.stylingandroid.adapters.CursorAdapterFragment</item>
         <item>com.ifancc.campus.ui.ChatActivity.java</item>
-        <item></item>
-        <item></item>
     </string-array>
     <string name="open_drawer">open</string>
     <string name="close_drawer">close</string>
@@ -47,4 +45,5 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
+
 </resources>

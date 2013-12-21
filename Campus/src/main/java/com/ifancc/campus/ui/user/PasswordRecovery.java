@@ -13,12 +13,12 @@ import com.ifancc.campus.R;
 
 import java.util.Random;
 
-public class Finpas extends Activity {
+public class PasswordRecovery extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_findpas);
+        setContentView(R.layout.activity_password_recovery);
         Random ra = new Random();
 
         int a1 = ra.nextInt(10);
@@ -29,7 +29,7 @@ public class Finpas extends Activity {
         final String check = ("" + a1 + b1 + c1 + d1).trim();
         final TextView tv = (TextView) findViewById(R.id.text4);
         tv.setText(check);
-        Button bu1 = (Button) findViewById(R.id.editText2);
+        Button bu1 = (Button) findViewById(R.id.confirm);
         bu1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Random ra = new Random();
@@ -43,16 +43,16 @@ public class Finpas extends Activity {
             }
 
         });
-        Button bu = (Button) findViewById(R.id.button);
+        Button bu = (Button) findViewById(R.id.confirm);
 
         bu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 EditText et = (EditText) findViewById(R.id.editText);
                 String edit = et.getText().toString();
                 if (edit.equals(check) || edit.equals(check1[0])) {
-                    Toast.makeText(Finpas.this, "正在发送，请稍后", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PasswordRecovery.this, "正在发送，请稍后", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(Finpas.this, "重新输入", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PasswordRecovery.this, "重新输入", Toast.LENGTH_LONG).show();
                 }
             }
 

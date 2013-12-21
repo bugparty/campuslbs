@@ -12,7 +12,6 @@ package com.ifancc.campus.ui;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
-        import android.widget.ArrayAdapter;
         import android.widget.ListView;
         import android.widget.SimpleAdapter;
         import android.widget.Toast;
@@ -47,7 +46,7 @@ public class ChatMainFragment extends ListFragment{
     };
     public View onCreateView(LayoutInflater inflater,ViewGroup container,
                              Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment1, container, false);
+        return inflater.inflate(R.layout.chat_message_list, container, false);
     }
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

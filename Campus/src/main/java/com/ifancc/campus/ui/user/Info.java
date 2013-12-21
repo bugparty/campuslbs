@@ -72,7 +72,7 @@ public class Info extends TabActivity implements View.OnClickListener {
         muserpagelist = (ListView) this.findViewById(R.id.user_details_list);
 
         muserpagelistTexts = getResources().getStringArray(R.array.userpage_list);
-        muserpagelistText = getResources().getStringArray(R.array.navigation_list);
+        muserpagelistText = getResources().getStringArray(R.array.home_navigation_list);
         muserpagelist.setAdapter(new ArrayAdapter<String>(this, R.layout.userpagelist_item, R.id.userpage_list_text1, muserpagelistTexts));
 
         muser_friends.setOnClickListener(new View.OnClickListener() {

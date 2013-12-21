@@ -62,7 +62,7 @@
         </activity>
         <activity android:name="com.ifancc.campus.ui.user.Info" />
         <activity android:name="com.ifancc.campus.ui.user.Register" />
-        <activity android:name="com.ifancc.campus.ui.user.Finpas" />
+        <activity android:name=".ui.user.PasswordRecovery" />
         <activity
             android:name=".ui.Map.MapActivity"
             android:screenOrientation="sensor"

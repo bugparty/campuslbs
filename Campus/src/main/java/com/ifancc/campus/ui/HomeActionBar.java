@@ -44,7 +44,7 @@ public class HomeActionBar extends BaseActivity {
                 R.string.open_drawer, R.string.close_drawer);
 
 
-        mNavigation_texts = getResources().getStringArray(R.array.navigation_list);
+        mNavigation_texts = getResources().getStringArray(R.array.home_navigation_list);
         mNavigation_list.setAdapter(new ArrayAdapter<String>(this, R.layout.navigation_list_item,
                 R.id.navigation_list_tv, mNavigation_texts));
         mDrawerLayout.setDrawerListener(mDrawerToggle);

@@ -21,34 +21,35 @@
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+    <LinearLayout
+        style="@style/LoginFormContainer"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
 
         <EditText
             android:id="@+id/email"
             android:singleLine="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
             android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="@string/prompt_email" />
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/text1"
-            android:textSize="25sp"
-            android:text="请输入你的邮箱"
+            android:hint="@string/prompt_email"
+            android:layout_marginTop="20dp" />
+        <EditText
+            android:id="@+id/nickname"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_below="@+id/email"
-            android:layout_alignLeft="@+id/email" />
+            android:inputType="textPersonName"
+            android:hint="@string/prompt_nickname" />
+
+
 
         <EditText
-            android:layout_marginTop="10dp"
+
             android:id="@+id/password"
             android:singleLine="true"
             android:maxLines="1"
@@ -63,25 +64,15 @@
             android:layout_alignRight="@+id/email"
             android:imeOptions="actionUnspecified" />
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_below="@+id/password"
-            android:layout_alignLeft="@+id/email"
-            android:layout_alignRight="@+id/email"
-            android:textSize="25dp"
-            android:text="6-15个任意字符" />
 
         <EditText
-            android:layout_marginTop="10dp"
+
             android:id="@+id/repassword"
             android:singleLine="true"
             android:maxLines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/prompt_password"
+            android:hint="@string/prompt_retype_password"
             android:inputType="textPassword"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeActionId="@+id/login"
@@ -90,19 +81,18 @@
             android:layout_alignRight="@+id/email"
             android:imeOptions="actionUnspecified" />
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_below="@+id/repassword"
-            android:layout_alignLeft="@+id/email"
-            android:layout_alignRight="@+id/email"
-            android:textSize="25dp"
-            android:id="@+id/text3"
-            android:text="请确认密码" />
 
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        style="@style/LoginFormContainer"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
         <Button
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/email"
@@ -110,8 +100,8 @@
             android:layout_below="@+id/text3"
             android:text="注   册"
             android:textSize="25sp" />
+    </LinearLayout>
 
-    </RelativeLayout>
 
 
 </LinearLayout>
