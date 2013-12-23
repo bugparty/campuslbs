@@ -1,1 +1,1 @@
-include ':Campus', ':weibo'
+include ':Campus'

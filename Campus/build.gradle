@@ -38,7 +38,8 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'com.android.support:support-v4:18.0.0'
-    //automatic add libs from Campus Module
-    compile fileTree(dir:'lib',include:'*.jar')
-
+    compile fileTree(dir: 'lib', include: '*.jar')
+    compile files('lib/commons-codec.jar')
+    compile files('lib/commons-httpclient-3.1.jar')
+    compile files('lib/commons-logging-1.1.jar')
 }
