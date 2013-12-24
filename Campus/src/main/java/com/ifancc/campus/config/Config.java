@@ -1,4 +1,4 @@
-package com.ifancc.campus;
+package com.ifancc.campus.config;
 
 /**
  * Created by bowman on 13-10-30.
