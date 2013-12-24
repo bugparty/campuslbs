@@ -30,7 +30,7 @@ public class AndroidExample extends Activity {
             	Weibo weibo = new Weibo();
             	RequestToken requestToken;
 				try {
-					requestToken =weibo.getOAuthRequestToken("weibo4android://OAuthActivity");
+					requestToken =weibo.getOAuthRequestToken("CampusOAuth://OAuthActivity");
 	    			OAuthConstant.getInstance().setRequestToken(requestToken);
 					Uri uri = Uri.parse(requestToken.getAuthenticationURL()+ "&display=mobile");
 	    			startActivity(new Intent(Intent.ACTION_VIEW, uri));

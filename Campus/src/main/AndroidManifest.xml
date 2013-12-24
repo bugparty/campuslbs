@@ -76,6 +76,15 @@
             android:name=".ui.Map.MapActivity"
             android:screenOrientation="sensor"
             android:configChanges="orientation|keyboardHidden" />
+        <activity android:name=".ui.OAuthActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="CampusOAuth" android:host="OAuthActivity" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
