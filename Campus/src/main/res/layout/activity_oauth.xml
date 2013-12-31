@@ -17,18 +17,47 @@
             <TextView
                 android:text="进行登录授权"
                 style="android:textAppearanceLarge"
-                android:id="@+id/TextView01"
+                android:id="@+id/tv_Title"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:padding="20px"/>
-            <Button
-                android:layout_width="wrap_content"
+            <LinearLayout
+                style="@style/LoginFormContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/buttonOAuth" />
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/et_email"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="weibo email"/>
+                <EditText
+                    android:id="@+id/et_password"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="weibo password"/>
+                </LinearLayout>
+            <LinearLayout
+                style="@style/LoginFormContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:id="@+id/btn_OAuth" />
             </LinearLayout>
+
+            </LinearLayout>
+
 
     </ScrollView>
     <ProgressBar android:id="@+id/loading_spinner"

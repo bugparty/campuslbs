@@ -61,6 +61,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.ifancc.campus.ui.OAuthActivity"
+            android:label="@string/title_activity_oauth"
+            android:windowSoftInputMode="adjustResize|stateVisible">
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.ifancc.campus.ui.user.Info" />
         <activity android:name="com.ifancc.campus.ui.user.Register" />
         <activity android:name=".ui.user.PasswordRecovery" />

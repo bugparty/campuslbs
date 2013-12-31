@@ -11,13 +11,9 @@ import com.ifancc.campus.bean.UserBean;
 import com.ifancc.campus.exceptions.WeiboException;
 import com.ifancc.campus.util.LogUtils;
 
-import org.apache.http.params.HttpParams;
-import org.apache.http.protocol.BasicHttpContext;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import com.ifancc.campus.config.URL;
 import com.turbomanage.httpclient.BasicHttpClient;
@@ -46,10 +42,6 @@ public class OAuthDao {
             Log.e(TAG, e.getMessage());
         }
 
-
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("uid", uid);
-        map.put("access_token", access_token);
 
         String url = URL.USER_SHOW;
         BasicHttpClient httpClient= new BasicHttpClient();
