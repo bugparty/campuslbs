@@ -59,9 +59,9 @@ public class HomeFragment extends ListFragment {
 
     private List<Map<String, Object>> getData() {
         List<Map<String, Object>> content = new ArrayList<Map<String, Object>>();
-        String [] names = getResources().getStringArray(R.id.user_details_list);
-        String [] date =  getResources().getStringArray(R.id.user_details_list);
-        String [] body =  getResources().getStringArray(R.id.user_details_list);
+        String [] names = getResources().getStringArray(R.array.username_list);
+        String [] date =  getResources().getStringArray(R.array.updata_time);
+        String [] body =  getResources().getStringArray(R.array.updata_message_list);
         for (int i = 0; i < 25; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("username", names[i]);
