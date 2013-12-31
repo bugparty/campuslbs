@@ -13,19 +13,20 @@ import com.ifancc.campus.exceptions.WeiboException;
 //todo : 把下面的lib 复制到咱们的包里，改名字
 import com.ifancc.campus.bean.AccountBean;
 import com.ifancc.campus.bean.UserBean;
-import com.ifancc.campus.dao.login.OAuthDao;
+/*import com.ifancc.campus.dao.login.OAuthDao;
 import org.qii.weiciyuan.support.database.AccountDBTask;
 
 import org.qii.weiciyuan.support.lib.MyAsyncTask;
 import org.qii.weiciyuan.support.lib.sinasso.SsoHandler;
 import org.qii.weiciyuan.support.debug.AppLogger;
 import org.qii.weiciyuan.support.utils.Utility;
-import org.qii.weiciyuan.ui.interfaces.AbstractAppActivity;
+import org.qii.weiciyuan.ui.interfaces.AbstractAppActivity;*/
 
 /**
  * User: qii
  * Date: 13-6-18
  */
+/*
 public class SSOActivity extends BaseActivity {
 
     private SSOTask task;
@@ -34,14 +35,16 @@ public class SSOActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActionBar().setTitle(R.string.weibo_app_login);
-        SsoHandler mSsoHandler = new SsoHandler(SSOActivity.this);
-        mSsoHandler.authorize();
+      */
+/*  SsoHandler mSsoHandler = new SsoHandler(SSOActivity.this);
+        mSsoHandler.authorize();*//*
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Utility.cancelTasks(task);
+      //  Utility.cancelTasks(task);
     }
 
     private class SSOTask extends MyAsyncTask<String, UserBean, OAuthActivity.DBResult> {
@@ -171,3 +174,4 @@ public class SSOActivity extends BaseActivity {
     }
 
 }
+*/
