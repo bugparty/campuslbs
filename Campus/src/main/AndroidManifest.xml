@@ -29,7 +29,7 @@
 
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
+
     <uses-permission android:name="android.permission.ACCESS_GPS" />
 
     <supports-screens
@@ -55,7 +55,7 @@
             android:name="com.ifancc.campus.ui.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible">
-            <intent-filter>
+           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -65,11 +65,11 @@
             android:name="com.ifancc.campus.ui.OAuthActivity"
             android:label="@string/title_activity_oauth"
             android:windowSoftInputMode="adjustResize|stateVisible">
-            <intent-filter>
+            <!--<intent-filter>
 
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name="com.ifancc.campus.ui.user.Info" />
         <activity android:name="com.ifancc.campus.ui.user.Register" />

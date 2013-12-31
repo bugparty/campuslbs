@@ -139,37 +139,176 @@
                 android:id="@android:id/tabcontent"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent">
-
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:fillViewport="true">
                 <LinearLayout
                     android:id="@+id/LinearLayout001"
                     android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
+                    <TextView
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="#000000"/>
 
-                    <ListView
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        android:id="@+id/user_details_list"
-                        android:background="@drawable/grey_background"
-                        android:choiceMode="singleChoice"
-                        android:fastScrollEnabled="true" />
-
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="130dp"
+                            android:textSize="20sp"
+                            android:text="用户名："/>
+                        <TextView
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:text="bowenhan"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="#000000"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="130dp"
+                            android:textSize="20sp"
+                            android:text="邮箱地址："/>
+                        <TextView
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:text="fancycode@gmail.com"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="#000000"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="130dp"
+                            android:textSize="20sp"
+                            android:text="联系电话："/>
+                        <TextView
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:text="13423425435"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="#000000"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="130dp"
+                            android:textSize="20sp"
+                            android:text="毕业学校："/>
+                        <TextView
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:text="河北经贸大学"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="#000000"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="130dp"
+                            android:textSize="20sp"
+                            android:text="现居住地："/>
+                        <TextView
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:text="河北省石家庄新华区"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_height="2dp"
+                        android:layout_width="fill_parent"
+                        android:background="#000000"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:gravity="center"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="130dp"
+                            android:textSize="20sp"
+                            android:text="个性签名："/>
+                        <TextView
+                            android:gravity="end"
+                            android:padding="3dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:textSize="20sp"
+                            android:text="升职，加薪，迎娶白富美，屌丝大逆袭。"/>
+                    </LinearLayout>
+                 </LinearLayout>
+                </ScrollView>
 
                 <LinearLayout
                     android:id="@+id/LinearLayout002"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
 
-                    <ListView
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        android:id="@+id/user_page_list"
-                        android:background="@drawable/grey_background"
-                        android:choiceMode="singleChoice"
-                        android:fastScrollEnabled="true">
-
-                    </ListView>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="250dp"
+                            android:ellipsize="end"
+                            android:text="adfsaiofnuiabfuabfffffffffffffffffadnfurebfad"
+                            android:textSize="20sp"/>
+                        </LinearLayout>
 
                 </LinearLayout>
 

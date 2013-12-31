@@ -69,7 +69,6 @@ public class Info extends TabActivity implements View.OnClickListener {
         mTabHost.addTab(mTabHost.newTabSpec("tab3").setContent(
                 R.id.LinearLayout003).setIndicator("相册"));
         muser_friends = (LinearLayout) this.findViewById(R.id.user_friends);
-        muserpagelist = (ListView) this.findViewById(R.id.user_details_list);
 
         muserpagelistTexts = getResources().getStringArray(R.array.userpage_list);
         muserpagelistText = getResources().getStringArray(R.array.home_navigation_list);
