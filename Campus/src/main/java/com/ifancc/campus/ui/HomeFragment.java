@@ -22,9 +22,9 @@ import java.util.Map;
  * Created by bowman on 13-12-10.
  */
 
-public class CardsFragment extends ListFragment {
+public class HomeFragment extends ListFragment {
     protected Context context;
-    private String TAG = LogUtils.makeLogTag(CardsFragment.class);
+    private String TAG = LogUtils.makeLogTag(HomeFragment.class);
     private SimpleAdapter adapter;
 
     /**
@@ -48,8 +48,8 @@ public class CardsFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         context = getActivity();
         Log.i(TAG, "onCreate");
-        final String[] from = {"username", "date"};
-        final int[] to = {R.id.message_username, R.id.message_date};
+        final String[] from = {"username", "date", "content"};
+        final int[] to = {R.id.message_username, R.id.message_date, R.id.message_content};
         adapter = new SimpleAdapter(context, getData(), R.layout.home_fragment_content,
                 from, to);
         //Log.d(TAG, "preSetListAdapter");
@@ -59,11 +59,14 @@ public class CardsFragment extends ListFragment {
 
     private List<Map<String, Object>> getData() {
         List<Map<String, Object>> content = new ArrayList<Map<String, Object>>();
-
-        for (int i = 0; i < 7; i++) {
+        String [] names = getResources().getStringArray(R.id.user_details_list);
+        String [] date =  getResources().getStringArray(R.id.user_details_list);
+        String [] body =  getResources().getStringArray(R.id.user_details_list);
+        for (int i = 0; i < 25; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("username", "bowmanHan");
-            map.put("date", "大约一首歌的时间");
+            map.put("username", names[i]);
+            map.put("date", date[i]);
+            map.put("content", body[i]);
             content.add(map);
 
         }

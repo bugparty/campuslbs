@@ -32,7 +32,7 @@ public class HomeActivity extends BaseActivity {
     private ActionBar mActionBar;
     private RelativeLayout user_homePage;
     private View mHomeListView;
-    private CardsFragment mHomeList;
+    private HomeFragment mHomeList;
     private static final String TAG = LogUtils.makeLogTag(HomeActivity.class);
 
 
@@ -42,7 +42,7 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         //Dynamic load the ListFragment for Home Screen
         mHomeListView = findViewById(R.id.home_listview);
-        mHomeList = new CardsFragment();
+        mHomeList = new HomeFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.home_listview, mHomeList).commit();
 
 

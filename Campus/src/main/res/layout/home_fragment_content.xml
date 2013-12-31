@@ -74,7 +74,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/message_listitem_content"
+                        android:id="@+id/message_content"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14.0sp"
