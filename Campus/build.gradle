@@ -22,13 +22,13 @@ android {
     signingConfigs {
         debug {
             storePassword 'hujin521'
-            storeFile file('..\\uml\\campus.jks')
+            storeFile file('../uml/campus.jks')
             keyAlias 'campus'
             keyPassword 'hujin521'
         }
         campus {
             storePassword 'hujin521'
-            storeFile file('..\\uml\\campus.jks')
+            storeFile file('../uml/campus.jks')
             keyAlias 'campus'
             keyPassword 'hujin521'
         }
