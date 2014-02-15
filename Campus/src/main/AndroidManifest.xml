@@ -61,7 +61,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="com.ifancc.campus.ui.user.Info" />
+        <activity android:name="com.ifancc.campus.ui.widget.SetupActivity"/>
         <activity android:name="com.ifancc.campus.ui.user.Register" />
         <activity android:name=".ui.user.PasswordRecovery" />
         <activity

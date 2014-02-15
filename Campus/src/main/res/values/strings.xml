@@ -4,6 +4,7 @@
     <string name="app_name">Campus</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_setup">设置</string>
     <string name="title_activity_home">HomeActivity</string>
 
     <string-array name="userdetails_list"></string-array>
@@ -45,5 +46,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
+    <string name="text1">常规设置</string>
+    <string name="text2">自动备份</string>
+    <string name="text3">将新照片和视频自动备份到Google+。备份的内容只有你自己可以看到。</string>
+    <string name="text4">账户设置</string>
+    <string name="text5">xiaomo zhan</string>
+    <string name="text6">zhangxiaomo333@gmail.com</string>
+    <string name="text7">添加账户</string>
+    <string name="text8">关于</string>
+    <string name="text9">关于 Google+</string>
 
 </resources>

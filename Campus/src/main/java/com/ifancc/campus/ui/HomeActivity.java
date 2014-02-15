@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import com.ifancc.campus.R;
 import com.ifancc.campus.ui.Map.MapActivity;
 import com.ifancc.campus.ui.user.Info;
+import com.ifancc.campus.ui.widget.SetupActivity;
 import com.ifancc.campus.util.LogUtils;
 
 public class HomeActivity extends BaseActivity {
@@ -78,7 +79,7 @@ public class HomeActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -110,6 +111,10 @@ public class HomeActivity extends BaseActivity {
             case R.id.action_settings:
                 Intent intent = new Intent(HomeActivity.this, MapActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.action_setup:
+                Intent intent1 = new Intent(HomeActivity.this,SetupActivity.class);
+                startActivity(intent1);
                 break;
         }
 
