@@ -99,7 +99,7 @@ public class OAuth2Activity extends BaseActivity {
        // iv.startAnimation(rotation);
 
         //refreshItem.setActionView(iv);
-        webView.loadUrl(getWeiboOAuthUrl());
+        //webView.loadUrl(getWeiboOAuthUrl());
     }
 
     private void completeRefresh() {
