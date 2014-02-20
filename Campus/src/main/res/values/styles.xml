@@ -28,6 +28,30 @@
     <style name="StreamContainer">
 
     </style>
+    <style name="setup1" >
+        <item name="android:textSize">15dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:layout_marginLeft">17dp</item>
+    </style>
+    <style name="setup2">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+    <style name="setup3">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+    <style name="setup4">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
 
     <style name="StreamOriginalContainer"></style>
 
