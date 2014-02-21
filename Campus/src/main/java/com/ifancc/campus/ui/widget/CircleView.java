@@ -13,7 +13,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
-import android.text.format.Time;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -52,7 +51,7 @@ public class CircleView extends View {
     private Context mContext;
     private Path mCirclePath;
     private void updateImage(){
-        roundedCorner();
+        roundImage();
 
         configureBounds();
 
@@ -130,8 +129,8 @@ public class CircleView extends View {
     private void cachePic(){
         mRoundedImage = new BitmapDrawable(mRes,getCircled(mRawImage, mWidth));
     }
-    private  void roundedCorner(){
-        Log.d(TAG,"roundedCorner");
+    private  void roundImage(){
+        Log.d(TAG,"roundImage");
         if(mWidth==0 || mHeight==0)
             return;
 
