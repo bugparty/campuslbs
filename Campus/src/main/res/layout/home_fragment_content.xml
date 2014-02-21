@@ -11,17 +11,18 @@
         android:id="@+id/message_detail_part"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="top|left"
         android:background="#F8F8FF"
 
 
         >
 
-        <RelativeLayout
-
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
             <com.ifancc.campus.ui.widget.CircleView
                 android:id="@+id/amd_avater"
                 android:layout_width="80dp"
@@ -30,29 +31,37 @@
                 campus:src="@drawable/bomanhan"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"/>
-            <TextView
-                android:id="@+id/message_username"
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:text="蓝精灵"
-                android:textSize="16.0sp"
-                android:textColor="#669900"
-                android:textStyle="bold"
-                android:layout_below="@+id/message_date"
-                android:layout_toRightOf="@+id/amd_avater" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/message_username"
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:text="蓝精灵"
+                    android:textSize="16.0sp"
+                    android:textColor="#669900"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/message_date"
+                    android:layout_toRightOf="@+id/amd_avater" />
 
-            <TextView
-                android:id="@+id/message_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2 分钟前"
-                android:textSize="12.0sp"
-                android:textColor="#ff555555"
-                android:textStyle="italic"
-                android:layout_centerVertical="true"
-                android:layout_alignLeft="@+id/message_username"
-                android:layout_alignStart="@+id/message_username" />
-        </RelativeLayout>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/message_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 分钟前"
+                    android:textSize="12.0sp"
+                    android:textColor="#ff555555"
+                    android:textStyle="italic"
+                    android:layout_centerVertical="true"
+                    android:layout_alignLeft="@+id/message_username"
+                    android:layout_alignStart="@+id/message_username" />
+                </LinearLayout>
+
+        </LinearLayout>
 
 
         <LinearLayout
@@ -65,24 +74,14 @@
 
 
 
-            <RelativeLayout
-                android:orientation="horizontal"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="20dp"
+                android:layout_margin="10dp">
 
-                >
 
-                <LinearLayout
-                    android:id="@+id/publish_part1"
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-
-                    >
 
                     <TextView
                         android:id="@+id/message_content"
@@ -92,7 +91,7 @@
                         android:textColor="#ff555555"
                         android:text="在那山的那边海的那边有一群蓝精灵，他们活泼又聪明，他们调皮又灵俐，他们自由自在生活在那 绿色的大森林，他们善良勇敢相互都关心，哦.... 可爱的蓝精灵，哦.... 可爱的蓝精灵，他们齐心合力开动脑筋，斗坏了格格巫，他们唱歌跳舞快乐多欢喜" />
 
-                </LinearLayout>
+
 
                 <LinearLayout
                     android:id="@+id/publish_part2"
@@ -100,7 +99,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/publish_part1"
+
 
                     >
 
@@ -112,7 +111,7 @@
                         android:clickable="true" />
 
                 </LinearLayout>
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
